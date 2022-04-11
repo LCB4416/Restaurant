@@ -1,0 +1,51 @@
+﻿/*properties for responsive home page*/
+@media only screen and (max-width:20px) {
+   .h1,.center,.pic,cente{
+        width: 10px;
+    }
+}
+/*properties for food image at home page*/
+.pic{
+    width: 60%;
+    margin-left: auto;
+    margin-right:auto;
+    padding : 10px;
+}
+/*properties for h1 and h3 tag*/
+h1{
+    text-align : center;
+    color : white;
+}
+h3{
+    text-align : center;
+    color : white;
+}
+/*properties for food and price box*/
+.center{
+    width:300px;
+    border:1px solid black;
+    padding : 10px;
+    background-color : lightsalmon;
+    margin-left:auto;
+    margin-right:auto;
+    opacity : 0.9;
+    text-align : center;
+    color : black;
+}
+/*properties for box below home page title*/
+.cente{
+    width: 700px;
+    border: 1px solid black;
+    padding: 10px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+    text-align: center;
+    color: white;
+}
+/*properties for responsive picture for index page*/
+.responsive{
+    width : 100%;
+    height : auto;
+}

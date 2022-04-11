@@ -1,0 +1,89 @@
+﻿/*properties for responsive layout page*/
+
+@media only screen and (max-width:620px){
+.topnav, .topnav a,.footer,.topnav-right,.cente{
+    width : 100%;
+ }
+}
+
+
+/*header propertis*/
+header{
+    text-align : center;
+    color: white;
+    font: bold;
+    margin-bottom: 5px;
+    font-size : 1px;
+}
+
+/*code for background website*/
+body {
+    background-image: url("/images/italianwallpaper.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+/*properties for navigation at index page*/
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    margin : 50px;
+    margin-bottom : 30px;
+    opacity : 0.9;
+}
+
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+/*top right navigation properties*/
+.topnav-right {
+    float: right;
+}
+
+/*Footer properties*/
+footer {
+    /* padding: 3px;
+    background-color:lightyellow;
+    color: white;
+    opacity: 0.9;
+    text-align:center;
+    position : fixed;
+    left :0;
+    bottom : 0; */
+    padding: 3px;
+    background-color: lightyellow;
+    color: white;
+    opacity: 0.9;
+    text-align: center;
+}
+
+/*website logo properties*/
+img.pic1{
+   display : block;
+   margin-left : auto;
+   margin-right : auto;
+   height:150px;
+   width:150px;
+}
+
+/*code for paragraph properties*/
+.p{
+   color:black;
+}
+
+
+

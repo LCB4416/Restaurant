@@ -1,0 +1,31 @@
+﻿body {
+    background-color: cadetblue
+}
+
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+}
+
+label {
+    background-color: #04AA6D;
+    color: white;
+    padding: 8px;
+    font-family: Arial;
+}
+
+div {
+    color: black;
+    border-radius: 5px;
+    background-color: yellow;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 40px;
+}

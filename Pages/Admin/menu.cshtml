@@ -1,0 +1,42 @@
+﻿@page
+@model Restaurant.Admin.Pages.menuModel
+@{
+    ViewData["title"] = "Index";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<link href="~/css/menu.css" rel="stylesheet" />
+
+<h1>Menu Page</h1>
+
+<form method="post">
+    <table>
+        <thead>
+            <tr>
+                <th>MenuName</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Edit / Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var menuitem in Model.Restaurant2022)
+            {
+                <tr>
+                    <td>@menuitem.MenuName</td>
+                    <td>@menuitem.Description</td>
+                    <td>@menuitem.Price.ToString("C")</td>
+                    <td>
+                        <a asp-page="/Admin/edit" asp-route-id="@menuitem.ID">Edit</a>
+                        <button type="submit" asp-page-handler="Delete" asp-route-itemID="@menuitem.ID">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Search</h2>
+   
+        <div>Search : <input asp-for="Search" /></div>
+        <button type="submit" asp-page-handler="Search">Search</button>
+    </form>

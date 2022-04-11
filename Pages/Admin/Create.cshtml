@@ -1,0 +1,35 @@
+﻿@page
+@model Restaurant.Pages.Admin.CreateModel
+@{
+    ViewData["Title"] = "Create";
+   
+}
+
+<link href="~/css/create1.css" rel="stylesheet" />
+
+<h1>Adding Data</h1>
+<p>Enter Data Required</p>
+
+<nav>
+    <a asp-page="/Admin/menu">Data Visible for Admin</a>
+</nav>
+
+<form method="post">
+    <div asp-validation-summary="All" class="validation"></div>
+
+    <div>Name: <input asp-for="Food.MenuName" /></div>
+    <div>Price: <input asp-for="Food.Price" /></div>
+    <div>Description: <input asp-for="Food.Description" /></div>
+
+    <input type="submit" />
+</form>
+
+
+<footer>
+    <p>
+        <a href="http://validator.w3.org/check?uri=referer">Validate HTML</a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer">Validate CSS</a>
+        <a asp-page="/Admin/Create">Admin</a>
+        <a asp-page="/Index">Home</a>
+    </p>
+</footer>

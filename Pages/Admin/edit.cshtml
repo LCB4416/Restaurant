@@ -1,0 +1,29 @@
+﻿@page "{id:int}"
+@model Restaurant.Pages.Admin.editModel
+@{
+    ViewData["title"] = "Index";
+}
+
+<link href="~/css/edit.css" rel="stylesheet" />
+
+<h1>Edit Data Page</h1>
+
+<form method="post">
+    <div>
+        <label>Item @Model.item.MenuName</label>
+        <div>
+            <input asp-for="item.MenuName" />
+        </div>
+        <label>Price</label>
+        <div><input type="text"  asp-for="item.Price" /></div>
+        <label>Description</label>
+        <div><input asp-for="item.Description" /></div>
+
+        <input asp-for="item.ID" type="hidden" />
+        <input asp-for="item.Active" type="hidden" />
+
+    </div>
+    <div>
+        <button type="submit" asp-page-handler="Save">Save</button>
+    </div>
+</form>

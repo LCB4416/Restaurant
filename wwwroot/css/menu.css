@@ -1,0 +1,37 @@
+﻿body {
+}
+
+table , td , th{
+    border : 3px solid black;
+    background-color : lightblue;
+}
+
+table{
+    border-collapse : collapse;
+    width : 100%;
+}
+
+th{
+    height : 40px;
+}
+
+input[type=text]{ 
+    width : 200px;
+    height : 40px;
+    padding : 12px 20px;
+    margin : 8px 0;
+    box-sizing : border-box;
+    }
+
+h1{
+    color : white;
+}
+
+h2{
+    color : white;
+}
+
+div{
+    color : white;
+}
+

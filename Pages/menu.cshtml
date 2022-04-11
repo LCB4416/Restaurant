@@ -1,0 +1,36 @@
+﻿@page
+@model Restaurant.Pages.menuModel
+@{
+    ViewData["title"] = "Index";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<link href="~/css/menu.css" rel="stylesheet" />
+
+<h1>Menu Page</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>MenuName</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach(var menuitem in Model.Restaurant2022)
+            {
+                <tr>
+                    <td>@menuitem.MenuName</td>
+                    <td>@menuitem.Description</td>
+                    <td>@menuitem.Price.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+</table>
+
+ <h2>Search</h2>
+<form method="post">
+    <div>Search : <input asp-for="Search"/></div>
+    <button type ="submit" asp-page-handler="Search">Search</button>
+</form>
