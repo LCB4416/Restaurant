@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Restaurant.Data;
 using Microsoft.AspNetCore.Authorization;
+using System.IO;
 
 namespace Restaurant.Pages.Admin
 {
@@ -25,6 +26,15 @@ namespace Restaurant.Pages.Admin
         {
             if (!ModelState.IsValid) { return Page(); }
             Food.Active = true;
+            foreach (var file in Request.Form.Files)
+            {
+                MemoryStream ms = new MemoryStream();
+                file.CopyTo(ms);
+                Food.ImageData = ms.ToArray();
+
+                ms.Close();
+                ms.Dispose();
+            }
             _db.Menuitem.Add(Food);
             await _db.SaveChangesAsync();
             return RedirectToPage("/Index");

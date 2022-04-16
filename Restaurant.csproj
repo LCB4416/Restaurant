@@ -8,9 +8,6 @@
     <Content Remove="wwwroot\images\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Remove="Pages\" />
   </ItemGroup>
   <ItemGroup>

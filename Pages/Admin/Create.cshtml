@@ -14,13 +14,19 @@
     <a asp-page="/Admin/menu">Data Visible for Admin</a>
 </nav>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div asp-validation-summary="All" class="validation"></div>
 
     <div>Name: <input asp-for="Food.MenuName" /></div>
     <div>Price: <input asp-for="Food.Price" /></div>
     <div>Description: <input asp-for="Food.Description" /></div>
-
+    <div>Image Description <input asp-for="Food.Description" /></div>
+    <div>
+        Upload Image:<br />
+        <input type="file" id="file1"
+               name="file1"
+               multiple="multiple" />
+    </div>
     <input type="submit" />
 </form>
 

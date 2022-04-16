@@ -17,20 +17,35 @@
                 <th>Description</th>
                 <th>Price</th>
                 <th>Edit / Delete</th>
+                <th>Image</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var menuitem in Model.Restaurant2022)
             {
-                <tr>
-                    <td>@menuitem.MenuName</td>
-                    <td>@menuitem.Description</td>
-                    <td>@menuitem.Price.ToString("C")</td>
-                    <td>
-                        <a asp-page="/Admin/edit" asp-route-id="@menuitem.ID">Edit</a>
-                        <button type="submit" asp-page-handler="Delete" asp-route-itemID="@menuitem.ID">Delete</button>
-                    </td>
-                </tr>
+            <tr>
+                <td>@menuitem.MenuName</td>
+                <td>@menuitem.Description</td>
+                <td>@menuitem.Price.ToString("C")</td>
+                @{
+                    try
+                    {
+                        <td>
+                            <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(menuitem.ImageData))" alt="@menuitem.ImageDescription" />
+                        </td>
+                    }
+                    catch
+                    {
+                        <td>
+                            <img src="/images/empty.jpg" alt="No Image provided" />
+                        </td>
+                    }
+                }
+                <td>
+                    <a asp-page="/Admin/edit" asp-route-id="@menuitem.ID">Edit</a>
+                    <button type="submit" asp-page-handler="Delete" asp-route-itemID="@menuitem.ID">Delete</button>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
