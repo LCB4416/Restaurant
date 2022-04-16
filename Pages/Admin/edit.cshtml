@@ -8,22 +8,30 @@
 
 <h1>Edit Data Page</h1>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div>
-        <label>Item @Model.item.MenuName</label>
+        <label>MenuName</label>
         <div>
-            <input asp-for="item.MenuName" />
+        <input asp-for="item.MenuName" />
         </div>
         <label>Price</label>
-        <div><input type="text"  asp-for="item.Price" /></div>
+        <div><input type="text" asp-for="item.Price" /></div>
         <label>Description</label>
         <div><input asp-for="item.Description" /></div>
+        <label>update Picture</label>
+        <div>
+            Upload Image:<br />
+            <input type="file" id="file1"
+                   name="file1"
+                   multiple="multiple" />
 
-        <input asp-for="item.ID" type="hidden" />
-        <input asp-for="item.Active" type="hidden" />
+            <input asp-for="item.ID" type="hidden" />
+            <input asp-for="item.Active" type="hidden" />
+            <input asp-for="item.ImageData" type="hidden" />
 
-    </div>
-    <div>
-        <button type="submit" asp-page-handler="Save">Save</button>
-    </div>
+        </div>
+<div>
+    <button type="submit" asp-page-handler="Save">Save</button>
+</div>
+        </div>
 </form>
