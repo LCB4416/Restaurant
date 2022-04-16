@@ -23,8 +23,11 @@
 
         <!-- navigation for the right side-->
         <div class="topnav-right">
-            <a href="#about">Log In</a>
+            <a asp-page="/Account/Login">Log in</a>
             <a asp-page="/Account/Register">Register</a>
+            <form asp-page="/Account/Logout" method="post">
+                <button type="submit">Logout</button>
+             </form>
         </div>
     </div>
        

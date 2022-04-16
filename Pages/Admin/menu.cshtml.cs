@@ -6,10 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Restaurant.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Restaurant.Admin.Pages
 {
-   
+    [Authorize(Roles = "Admin")]
     public class menuModel : PageModel
     {
         private readonly AppDbContext _db;

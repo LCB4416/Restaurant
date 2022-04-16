@@ -1,0 +1,26 @@
+﻿@page
+@model Restaurant.Pages.Account.LoginModel
+@{
+    ViewData["title"] = "Log in";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+<form method="post">
+    <h4>Use a local account to log in.</h4>
+    <hr />
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="Input.Email"></label>
+        <input asp-for="Input.Email" />
+        <span asp-validation-for="Input.Email"></span>
+    </div>
+    <div>
+        <label asp-for="Input.Password"></label>
+        <input asp-for="Input.Password" />
+        <span asp-validation-for="Input.Password"></span>
+    </div>
+    <div>
+        <button type="submit">Log in</button>
+    </div>
+</form>

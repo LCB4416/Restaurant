@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Restaurant.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Restaurant.Pages.Admin
 {
+    [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
     {
         private AppDbContext _db;

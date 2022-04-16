@@ -34,20 +34,53 @@ namespace Restaurant
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = new PathString("/Account/Login");
+                options.AccessDeniedPath = new PathString("/Account/AccessDenied");
+                options.LogoutPath = new PathString("/Index");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            CreateRoles(serviceProvider).Wait();
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
+        }
+        private async  Task CreateRoles(IServiceProvider serviceProvider)
+        {
+            var RoleManager = serviceProvider.
+                GetRequiredService<RoleManager<IdentityRole>>();
+            var UserManager = serviceProvider.
+                GetRequiredService<UserManager<ApplicationUser>>();
+
+            string[] roleNames = { "Admin", "Member" };
+
+            foreach(var roleName in roleNames)
+                {
+                var roleExist = await RoleManager.RoleExistsAsync(roleName);
+                if(!roleExist)
+                {
+                    var roleResult = await RoleManager.
+                        CreateAsync(new IdentityRole(roleName));
+                }
+            }
+            var _user = await UserManager.FindByEmailAsync("adminLCB@gmail.com");
+            if(_user != null)
+            {
+                await UserManager.AddToRoleAsync(_user, "Admin");
+            }
         }
     }
 }

@@ -3,8 +3,26 @@
     ViewData["title"] = "Index";
     Layout = "~/Pages/_Layout.cshtml";
 }
+@using Microsoft.AspNetCore.Identity
+@using Restaurant.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 <!--css page link -->
 <link href="~/css/index.css" rel="stylesheet" />
+
+
+@if(SignInManager.IsSignedIn(User))
+            {
+                <h2>Welcome @UserManager.GetUserName(User)</h2>
+    if(User.IsInRole("Admin"))
+                {
+                    <h2>Admin page access</h2>
+                }
+}
+            else
+            {
+                <h2>Hello user</h2>
+            }
 
 <div class="cente">
     <p>Welcome to LCB Restaurant website.</p>
@@ -13,7 +31,6 @@
 
 <!-- title for the image shown-->
 <h1>Most Popular Dish</h1>
-
 <!-- picture of the food at home page-->
 
 <div class="pic">
