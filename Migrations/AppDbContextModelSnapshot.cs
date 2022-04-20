@@ -229,6 +229,12 @@ namespace Restaurant.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<byte[]>("ImageData")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("ImageDescription")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("MenuName")
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");

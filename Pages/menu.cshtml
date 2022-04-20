@@ -9,44 +9,52 @@
 
 <h1>Menu Page</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>MenuName</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Image Of the Food</th>
-        </tr>
+<form method="post">
+    <table>
+        <thead>
+            <tr>
+                <th>MenuName</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image Of the Food</th>
+                <th>Purchase Item</th>
+            </tr>
         </thead>
         <tbody>
-            @foreach(var menuitem in Model.Restaurant2022)
+            @foreach (var menuitem in Model.Restaurant2022)
             {
-            <tr>
-                <td>@menuitem.MenuName</td>
-                <td>@menuitem.Description</td>
-                <td>@menuitem.Price.ToString("C")</td>
-                @{
-                    try
-                    {
-                        <td>
-                            <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(menuitem.ImageData))" alt="@menuitem.ImageDescription" />
-                        </td>
+                <tr>
+                    <td>@menuitem.MenuName</td>
+                    <td>@menuitem.Description</td>
+                    <td>@menuitem.Price.ToString("C")</td>
+                    @{
+                        try
+                        {
+                            <td>
+                                <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(menuitem.ImageData))" alt="@menuitem.ImageDescription" />
+                            </td>
+                        }
+                        catch
+                        {
+                            <td>
+                                <img src="/images/empty.jpg" alt="No Image provided" />
+                            </td>
+                        }
                     }
-                    catch
-                    {
-                        <td>
-                            <img src="/images/empty.jpg" alt="No Image provided" />
-                        </td>
-                    }
-                }
+                    <td>
+                        <button type="submit" asp-page-handler="Buy"
+                                asp-route-itemID="@menuitem.ID">
+                            Buy
+                        </button>
+                    </td>
 
-            </tr>
+                </tr>
             }
         </tbody>
-</table>
+    </table>
 
- <h2>Search</h2>
-<form method="post">
-    <div>Search : <input asp-for="Search"/></div>
-    <button type ="submit" asp-page-handler="Search">Search</button>
+    <h2>Search</h2>
+
+    <div>Search : <input asp-for="Search" /></div>
+    <button type="submit" asp-page-handler="Search">Search</button>
 </form>

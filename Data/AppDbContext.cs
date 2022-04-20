@@ -14,10 +14,14 @@ namespace Restaurant.Data
 
         }
         public DbSet<MenuFood> Menuitem { get; set; }
+        public DbSet<CheckoutCustomer> CheckoutCustomers { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.Entity<BasketItem>().HasKey(t => new { t.StockID, t.BasketID });
         }
     }
 }

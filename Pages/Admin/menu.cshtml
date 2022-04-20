@@ -17,6 +17,7 @@
                 <th>Description</th>
                 <th>Price</th>
                 <th>Edit / Delete</th>
+                <th>Buy</th>
                 <th>Image</th>
             </tr>
         </thead>
@@ -41,6 +42,13 @@
                         </td>
                     }
                 }
+                <td>
+                    <button type="submit" asp-page-handler="Buy"
+                            asp-route-itemID="@menuitem.ID">
+                        Buy
+                    </button>
+                </td>
+
                 <td>
                     <a asp-page="/Admin/edit" asp-route-id="@menuitem.ID">Edit</a>
                     <button type="submit" asp-page-handler="Delete" asp-route-itemID="@menuitem.ID">Delete</button>

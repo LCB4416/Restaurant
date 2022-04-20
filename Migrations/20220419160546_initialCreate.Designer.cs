@@ -10,7 +10,7 @@ using Restaurant.Data;
 namespace Restaurant.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220416074009_initialCreate")]
+    [Migration("20220419160546_initialCreate")]
     partial class initialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -230,6 +230,12 @@ namespace Restaurant.Migrations
                     b.Property<string>("Description")
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
+
+                    b.Property<byte[]>("ImageData")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("ImageDescription")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MenuName")
                         .HasMaxLength(25)
