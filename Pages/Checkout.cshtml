@@ -1,0 +1,43 @@
+﻿@page
+@model Restaurant.Pages.CheckoutModel
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<h1>Checkout</h1>
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.MenuItems)
+            {
+                var subtotal = item.Price * item.Quantity;
+                <tr>
+                     <td>@item.MenuName</td>
+                    <td>@item.Price.ToString("C")</td>
+
+    <td>
+         <button type="submit" asp-page-handler="Purchase" asp-route-itemID="@item.ID">+</button>
+
+         <button type="submit" asp-page-handler="Decrease" asp-route-itemID="@item.ID">-</button>
+    </td>
+                    <td>@item.Quantity</td>
+                    <td>@subtotal.ToString("C")</td>                
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="submit" asp-page-handler="Buy">Buy</button>
+</form>
+
+

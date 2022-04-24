@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,10 +19,19 @@ namespace Restaurant.Data
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
 
+        public DbSet<OrderHistories> OrderHistories { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+
+        [NotMapped]
+        public DbSet<CheckoutItems> CheckoutItems { get; set; }
+
+
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
             builder.Entity<BasketItem>().HasKey(t => new { t.StockID, t.BasketID });
+            builder.Entity<OrderItem>().HasKey(t => new { t.StockID, t.OrderNo });
         }
     }
 }

@@ -64,6 +64,8 @@ namespace Restaurant.Pages
             {
                 item.Quantity = item.Quantity + 1;
                 _db.Attach(item).State = EntityState.Modified;
+
+
                 try
                 {
                     await _db.SaveChangesAsync();
