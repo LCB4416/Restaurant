@@ -4,6 +4,9 @@
     ViewData["Title"] = "Checkout";
     Layout = "~/Pages/_Layout.cshtml";
 }
+@using Restaurant.Data
+@using Microsoft.Extensions.Options
+@inject IOptions<StripeSettings> Stripe
 
 <h1>Checkout</h1>
 <form method="post">
@@ -23,21 +26,32 @@
             {
                 var subtotal = item.Price * item.Quantity;
                 <tr>
-                     <td>@item.MenuName</td>
+                    <td>@item.MenuName</td>
                     <td>@item.Price.ToString("C")</td>
 
-    <td>
-         <button type="submit" asp-page-handler="Purchase" asp-route-itemID="@item.ID">+</button>
+                    <td>
+                        <button type="submit" asp-page-handler="Purchase" asp-route-itemID="@item.ID">+</button>
 
-         <button type="submit" asp-page-handler="Decrease" asp-route-itemID="@item.ID">-</button>
-    </td>
+                        <button type="submit" asp-page-handler="Decrease" asp-route-itemID="@item.ID">-</button>
+                    </td>
                     <td>@item.Quantity</td>
-                    <td>@subtotal.ToString("C")</td>                
+                    <td>@subtotal.ToString("C")</td>
                 </tr>
             }
         </tbody>
     </table>
-    <button type="submit" asp-page-handler="Buy">Buy</button>
+    <div>Total = @Model.Total.ToString("C")</div>
+  
+    </form>
+    <form asp-page-handler="Charge" asp-route-amount="@Model.AmountPayable" method="POST">
+        <script src="//checkout.stripe.com/v2/checkout.js"
+                class="stripe-button"
+                data-key="@Stripe.Value.PublishableKey"
+                data-locale="auto"
+                data-description="CO5227 Restaurant Checkout"
+                data-amount="@Model.AmountPayable"
+                data-currency="SGD">
+        </script>
 </form>
 
 

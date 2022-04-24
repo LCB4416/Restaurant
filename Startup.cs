@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Restaurant.Data;
 using Microsoft.AspNetCore.Identity;
+using Stripe;
 
 namespace Restaurant
 {
@@ -41,6 +42,7 @@ namespace Restaurant
                 options.AccessDeniedPath = new PathString("/Account/AccessDenied");
                 options.LogoutPath = new PathString("/Index");
             });
+            services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,12 +52,19 @@ namespace Restaurant
             {
                 app.UseDeveloperExceptionPage();
             }
+            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["SecretKey"];
             CreateRoles(serviceProvider).Wait();
+            //Allows us to use CSS and Javascript files
             app.UseAuthentication();
+            //Use secure sockets
             app.UseHttpsRedirection();
+            //Allows us to use CSS and Javascript files
             app.UseStaticFiles();
+            //Use secure sockets
             app.UseRouting();
+            //Allows us to use CSS and Javascript files
             app.UseAuthorization();
+            //Tells project we're using RazorPages
             app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
         }
         private async  Task CreateRoles(IServiceProvider serviceProvider)
