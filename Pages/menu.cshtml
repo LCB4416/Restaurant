@@ -1,11 +1,11 @@
 ﻿@page
 @model Restaurant.Pages.menuModel
 @{
-    ViewData["title"] = "Index";
+    ViewData["title"] = "Menu";
     Layout = "~/Pages/_Layout.cshtml";
 }
 
-<link href="~/css/menu.css" rel="stylesheet" />
+<link href="~/css/menu1.css" rel="stylesheet" />
 
 <h1>Menu Page</h1>
 
@@ -30,7 +30,7 @@
                     @{
                         try
                         {
-                            <td>
+                            <td class="imageitem">
                                 <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(menuitem.ImageData))" alt="@menuitem.ImageDescription" />
                             </td>
                         }

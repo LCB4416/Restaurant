@@ -35,3 +35,8 @@ div{
     color : white;
 }
 
+.imageitem img{ 
+    width : 50%;
+    height : 50%;
+}
+
