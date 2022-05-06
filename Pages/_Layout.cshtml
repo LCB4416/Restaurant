@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
@@ -8,54 +8,52 @@
     <!--Link css file -->
     <link href="~/css/layout.css" rel="stylesheet" />
 
+</head>
+<body>
     <!--header for the home page-->
     <h3>LCB RESTAURANT</h3>
 
     <!-- logo for the home page-->
-    <img class ="pic1" src="~/images/restaurantlogo.png" />
+    <img class="pic1" src="~/images/restaurantlogo.png" alt="Restaurant Logo" />
 
     <!-- navigation for the website-->
     <div class="topnav">
         <a class="active" asp-page="/Index">Home</a>
         <a asp-page="/menu">Menu.</a>
         <a asp-page="/Index">Contact</a>
-        
+
         <!-- navigation for the right side-->
         <div class="topnav-right">
             <a asp-page="/Account/Login">Log in</a>
             <a asp-page="/Account/Register">Register</a>
             <a asp-page="/Checkout">Checkout</a>
             <form asp-page="/Account/Logout" method="post">
-             <button type="submit" class="logout" >Logout</button>
+                <button type="submit" class="logout">Logout</button>
             </form>
 
         </div>
     </div>
-       
 
-</head>
-<body>
+        <div>
+            @RenderBody()
+        </div>
 
-    <div>
-        @RenderBody()
-    </div>
+        <!-- footer for the website-->
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
-    <!-- footer for the website-->
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-   
-    <footer>
-        <p>
-            <a href="http://validator.w3.org/check?uri=referer">Validate HTML</a>
-            <a href="http://jigsaw.w3.org/css-validator/check/referer">Validate CSS</a>
-            <a asp-page="/Admin/Create">Admin</a>
-        </p>
-    </footer>
-    <!-- end footer code-->
-</body>
+        <footer>
+            <p>
+                <a href="http://validator.w3.org/check?uri=referer">Validate HTML</a>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer">Validate CSS</a>
+                <a asp-page="/Admin/Create">Admin</a>
+            </p>
+        </footer>
+        <!-- end footer code-->
+    </body>
 </html>
