@@ -5,8 +5,10 @@
     Layout = "~/Pages/_Layout.cshtml";
 }
 
-<h1>Register</h1>
-<form method="post">
+<link href="~/css/register.css" rel="stylesheet" />
+
+<form method="post" class="form">
+    <h1>Register An Account</h1>
     <h4>Create a new account.</h4>
     <hr />
     <div asp-validation-summary="All"></div>
@@ -25,5 +27,5 @@
         <input asp-for="Input.ConfirmPassword" />
         <span asp-validation-for="Input.ConfirmPassword"></span>
     </div>
-    <button type="submit">Register</button>
+    <button type="submit" class="button">Register</button>
 </form>

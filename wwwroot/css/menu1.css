@@ -25,6 +25,7 @@ input[type=text]{
 
 h1{
     color : white;
+    text-align : center;
 }
 
 h2{
@@ -35,8 +36,17 @@ div{
     color : white;
 }
 
-.imageitem img{ 
-    width : 50%;
-    height : 50%;
+.imageitem img {
+    width: 50%;
+    height: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width:620px) {
+    h1, h2, .footer, .topnav-right, .cente {
+        width: 100%;
+    }
 }
 

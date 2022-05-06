@@ -8,15 +8,17 @@
 @using Microsoft.Extensions.Options
 @inject IOptions<StripeSettings> Stripe
 
-<h1>Checkout</h1>
+    <link href="~/css/checkout.css" rel="stylesheet" />
+
+<h1>CheckOut Page</h1>
 <form method="post">
     <table class="table">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Price</th>
+                <th>Add and Remove</th>
                 <th>Quantity</th>
-                <th></th>
                 <th>Subtotal</th>
             </tr>
         </thead>

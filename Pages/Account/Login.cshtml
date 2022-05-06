@@ -5,8 +5,11 @@
     Layout = "~/Pages/_Layout.cshtml";
 }
 
-<h2>Login</h2>
-<form method="post">
+<link href="~/css/login.css" rel="stylesheet" />
+
+
+<form method="post" class="form">
+    <h2>Login</h2>
     <h4>Use a local account to log in.</h4>
     <hr />
     <div asp-validation-summary="All"></div>
@@ -21,6 +24,6 @@
         <span asp-validation-for="Input.Password"></span>
     </div>
     <div>
-        <button type="submit">Log in</button>
+        <button type="submit" class="button">Log in</button>
     </div>
 </form>

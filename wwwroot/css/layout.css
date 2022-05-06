@@ -52,6 +52,7 @@ body {
 /*top right navigation properties*/
 .topnav-right {
     float: right;
+    width : 350px;
 }
 
 /*Footer properties*/
@@ -69,6 +70,21 @@ footer {
     color: white;
     opacity: 0.9;
     text-align: center;
+}
+
+/*Log Out*/
+.logout {
+    background-color: Transparent;
+    border: none;
+    font-size: 17px;
+    color: white;
+    float: right;
+    font-family: Ariel;
+    padding : 15.5px ;
+}
+
+.logout:hover {
+    background-color: #ddd;
 }
 
 /*website logo properties*/

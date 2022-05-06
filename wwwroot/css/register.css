@@ -1,0 +1,38 @@
+﻿body {
+}
+
+.form {
+    background-color: darkgrey;
+    text-align: center;
+}
+
+input {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+.button {
+    width: 30%;
+    background-color: yellow;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
