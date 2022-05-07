@@ -1,0 +1,49 @@
+﻿@page
+@model Restaurant.Pages.contactpageModel
+@{
+    ViewData["title"] = "contact page";
+    Layout = "~/Pages/_Layout.cshtml";
+
+}
+
+<link href="/css/contactpage.css" rel="stylesheet" />
+
+<h1>CONTACT PAGE</h1>
+
+<div class="container">
+
+    <div class="image">
+        <img src="/images/map.png" alt="location of the restaurant">
+    </div>
+
+    <div class="contact">
+        <p>Contact Information</p>
+        <br />
+        <p>Email</p>
+        <p>LCBRESTAURANT@gmail.com</p>
+        <br />
+        <p>Phone Number</p>
+        <p> +673 8900980</p>
+        <br />
+        <p>Location</p>
+        <p>Kampong Durian , Simpang 9, No.8, Jalan Sungai</p>
+
+    </div>
+
+
+    <div class="form">
+        <form>
+            <label>Email</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+            <label>Phone Number </label>
+            <input type="text" name="Phone Number" placeholder="Enter Your Phone Number">
+
+            <label>Enquiry</label>
+            <textarea id="subject" name="subject" placeholder="Write Your Enquiry On This Box" class="box"></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</div>

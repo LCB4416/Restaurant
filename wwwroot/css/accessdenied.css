@@ -1,0 +1,23 @@
+﻿body {
+}
+
+.container {
+    background-color: Grey;
+    padding: 20px;
+    width: 30%;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+    text-align : center;
+}
+
+img {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    text-align: center;
+}
